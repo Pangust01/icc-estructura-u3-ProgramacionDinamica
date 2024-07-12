@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import Ejercicios.contorllers.Laberinto;
+
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Programación Dinámica");
@@ -22,7 +24,7 @@ public class App {
         System.out.println("Time taken: " + (endtime - startime)/1e+9 + " ns");
 
         /// Ejericio 1
-        // runEjercicio();
+        runEjercicio();
 
     }
 
@@ -73,12 +75,34 @@ public class App {
 
     public static void runEjercicio() {
 
-        // boolean[][] grid = {
-        // { true, true, true, true },
-        // { false, false, false, true },
-        // { true, true, false, true },
-        // { true, true, false, true }
-        // };
-
+        boolean[][] grid = {
+            { true, true, true, true },
+            { false, false, false, true },
+            { true, true, false, true },
+            { true, true, false, true }
+        };
+        Laberinto lab = new Laberinto();
+        lab.getPath(grid);
+    
     }
+    static class Celda {
+        int x;
+        int y;
+
+        // Constructor de la clase Celda
+        Celda(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        // Sobrescribimos el método toString para imprimir las coordenadas de la celda
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return  "(" + x + "," + y + ")";
+        }
+        
+    }
+
 }
+
